@@ -1,0 +1,111 @@
+{% load static %}
+{% static 'images' as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    
+
+    {% block title %}
+
+    {% endblock title %}
+
+</head>
+
+<body>
+    <!--navigation bar-->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'index' %}">Stock Market Prediction</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'aboutus' %}">About</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 mx-4" method="GET" action="search">
+                <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query" id="query"> -->
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query" id="stock_symbol">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <div class="mx-2">
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+
+                    <li class="nav-item ">
+                        <h5 style="color:white;">Hi, {{ user.first_name }} </h5>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+
+                    {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-outline-light">Login</a>
+                    <a href="{% url 'signup' %}" class="btn btn-outline-light">Signup</a>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}
+
+    {% endblock content %}
+
+    <footer class="py-5 bg-dark">
+        <div class="container px-4 px-lg-5">
+            <p class="m-0 text-center text-white">Copyright &copy; 2021 <br>This website is subjected to market risk
+                <br> contact us at: project_computer@googlegroups.com
+            </p>
+        </div>
+    </footer>
+
+    <!-- Ajax And jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- BootStrap Javascript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+
+    
+
+    <!-- Apex Chart CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+
+
+    <!-- JQuery and Ajax CDB -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+
+
+     <!-- Chartjs CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.2/chart.min.js"></script> 
+
+    <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+-->
+    
+    
+
+
+    <!-- Static Javascript Libraries -->
+    <script src="{% static 'js/hometable.js' %}"></script>
+    <script src="{% static 'js/homechart.js' %}"></script>
+    <script src="{% static 'js/apiget.js' %}"></script>
+</body>
+
+</html>

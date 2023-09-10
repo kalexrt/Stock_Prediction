@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>
+    {{stocks.Symbol}}
+</title>
+{% endblock title %}
+
+
+{% block content %}
+
+{% for stock in stocks %}
+<div class="container my-5">
+    <div class="my-4">
+        <!-- <h1>Website of STOCKS </h1> -->
+        <h2 class="my-4">{{ stock.Symbol }}</h2>
+        <p id="testObject"></p>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body ">
+                        <p class="card-text">As on: {{stock.Date}} 1,281.00 13.00 1.03 % <br>
+                            Open: {{stock.Open}} High: {{stock.High}} Low: {{stock.Low}} Volume: {{stock.Vol}}<br>
+                            52 Week High-Low :1,500.00 - 576.00 180 Days Average : 1,150.59<br>
+                            120 Days Average : 1,295.89<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body ">
+                        <p class="card-text">Symbol: {{ stock.Symbol }}<br>
+                            Sector: Others<br>
+                            Share Registar: Nepal Doorsanchar Company Limited<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="card my-4 ">
+            <div class="card-body ">
+                <div class="row my-4">
+                    <div class="col-md-2">
+                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                            aria-orientation="vertical">
+                            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home"
+                                role="tab" aria-controls="v-pills-home" aria-selected="true">Company info</a>
+                            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
+                                role="tab" aria-controls="v-pills-profile" aria-selected="false">Basic chart</a>
+                            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages"
+                                role="tab" aria-controls="v-pills-messages" aria-selected="false">Predicted chart</a>
+                            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings"
+                                role="tab" aria-controls="v-pills-settings" aria-selected="false">news</a>
+                            <a class="nav-link" id="v-pills-price-tab" data-toggle="pill" href="#v-pills-price"
+                                role="tab" aria-controls="v-pills-price" aria-selected="false">price</a>
+                        </div>
+                    </div>
+                    <div class="col-md-10 content_item">
+                        <!-- company table view -->
+                        <div class="tab-content" id="v-pills-tabContent">
+                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                                aria-labelledby="v-pills-home-tab">
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Symbol</th>
+                                            <th scope="col">{{ stock.Symbol }}</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Larry</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- chart view -->
+                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+                                aria-labelledby="v-pills-profile-tab">
+                                <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
+
+                                <div id="chart" width="400" height="400">
+
+                                </div>
+                            </div>
+                            <!-- predicted chart -->
+                            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
+                                aria-labelledby="v-pills-messages-tab">
+                                <canvas id="myChart" width="400" height="400"></canvas>
+                            </div>
+
+
+                            <!-- news table -->
+                            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
+                                aria-labelledby="v-pills-settings-tab">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">First</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td colspan="2">Larry the Bird</td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <!-- price table -->
+                            <div class="tab-pane fade" id="v-pills-price" role="tabpanel"
+                                aria-labelledby="v-pills-price-tab">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">First</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td colspan="2">Larry the Bird</td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <script>
+        const url2 = "http://127.0.0.1:8000/stock/"+ "{{stock_symbol | safe}}";
+        console.log(url2);
+    </script>
+
+
+
+    {% endblock content %}
+
+    {% block scripts %}
+
+    <!-- Ajax And jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Apex Chart CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <!-- ApexChart JS -->
+        <script src="{% static 'js/apigets.js' %}"></script>
+
+    {% endblock scripts %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% static "images" as baseUrl %}
+
+
+{% block title %}
+    <title>About Us</title>
+{% endblock title %}
+
+
+{% block content %}
+
+<header class="bg-secondary text-center py-5 mb-4 my-4">
+    <div class="container">
+        <h1 class="font-weight-light text-white">Meet the Team</h1>
+    </div>
+</header>
+
+
+<!-- Page Content -->
+<div class="container my-4">
+    <div class="row">
+        <!-- Team Member 1 -->
+        {% for member in team %}
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-0 shadow">
+                <img src="{{ member.image.url }}" class="card-img-top" >
+                <div class="card-body text-center">
+                    <h5 class="card-title mb-0">{{ member.membername }}</h5>
+                    <h6 class="card-title mb-0">{{ member.desc }}</h6>
+                    <div class="card-text text-black-50">Web Developer</div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+{% endblock content %}

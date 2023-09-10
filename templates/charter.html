@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Login</title>
+{% endblock title %}
+
+
+{% block content %}
+    
+
+    <!-- <div id="chartSearch">
+    </div> -->
+
+    <h1>HEllow world</h1>
+
+    
+    <!-- <script>
+    
+      
+      
+        const url1 = "https://api.github.com/";
+        const url2 = "http://127.0.0.1:8000/stock/";
+        const url3 = "https://s3.eu-central-1.amazonaws.com/fusion.store/ft/data/candlestick-chart-data.json";
+        $(document).ready(function () {
+            $.ajax({
+                url: url2,
+                type: 'GET',
+                datatype: "json",
+                success: successFunction
+            });
+        });
+
+        var dataset = [];
+        function successFunction(object) {
+            var str =" ";
+                object.forEach((value, index) => {
+                  var dobject = {
+                                x : value.Date,
+                                y : []
+                              }
+            
+                  dobject.y.push(value.Open, value.Close, value.High, value.Low, value.Vol);
+                  dataset.push(dobject);
+                });
+
+                var chart = new ApexCharts(document.querySelector("#chart"), options);
+                chart.render();
+        }
+
+    
+
+
+
+
+        
+
+        var options = {
+            series: [{
+            data: dataset
+          }],
+            chart: {
+            type: 'candlestick',
+            height: 350
+          },
+          title: {
+            text: 'CandleStick Chart',
+            align: 'left'
+          },
+          xaxis: {
+            type: 'datetime'
+          },
+          yaxis: {
+            tooltip: {
+              enabled: true
+            }
+          }
+          };
+  
+          
+    </script> -->
+{% endblock %}

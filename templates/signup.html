@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Login</title>
+{% endblock title %}
+
+
+{% block content %}
+
+    <div class="text-center mx-4 mb-4">
+        <h2>SIGNUP</h2>
+    </div>
+    <div class="my-4 d-flex
+    justify-content-center
+    align-items-center
+    ">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="signupName">First Name</label>
+                <input type="name" class="form-control" aria-describedby="nameHelp" name="first_name"
+                    placeholder="Enter Firstname">
+            </div>
+            <div class="form-group">
+                <label for="signupName">Last Name</label>
+                <input type="name" class="form-control" aria-describedby="nameHelp" name="last_name"
+                    placeholder="Enter Lastname">
+            </div>
+            <div class="form-group">
+                <label for="signupEmail">Email address</label>
+                <input type="email" class="form-control" aria-describedby="emailHelp" name="email"
+                    placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <input type="password" class="form-control" placeholder="Password" name="password1">
+            </div>
+            <div class="form-group">
+                <label for="signupPassword">Confirm Password</label>
+                <input type="password" class="form-control" placeholder="Password" name="password2">
+            </div>
+            <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+            <button type="submit" class="btn btn-primary">Create</button>
+            {% for message in messages %}
+                <div>{{ message }}</div>
+            {% endfor %}
+        </form>
+
+    </div>
+
+{% endblock content %}
+
